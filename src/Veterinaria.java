@@ -5,16 +5,27 @@ import java.awt.event.ActionListener;
 public class Veterinaria {
 
     private JPanel panelPrincipal;
-    private JButton lanzaProgramaButton;
+    private JButton lanzarPrograma;
 
 
     public Veterinaria() {
-        lanzaProgramaButton.addActionListener(new ActionListener() {
+
+        lanzarPrograma.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            VentanaVeterinaria ventanaVeterinaria = new VentanaVeterinaria();
+            ventanaVeterinaria.setVisible(true);
             }
         });
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Veterinaria");
+        frame.setContentPane(new Veterinaria().panelPrincipal);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setSize(700,500);
     }
 }
 
