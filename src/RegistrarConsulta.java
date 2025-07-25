@@ -1,15 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class RegistrarConsulta extends javax.swing.JFrame {
     private JPanel registrar;
     private JTextField textField1;
     private JTextField textField2;
-    private JButton buscarButton;
+    private JButton BUSCARButton;
     private JTextField textField4;
     private JTextArea textArea1;
     private JTextArea textArea2;
     private JPasswordField passwordField1;
+    private JButton ATRASButton;
 
     public RegistrarConsulta() {
         super("Registro de Consulta");
@@ -21,7 +24,14 @@ public class RegistrarConsulta extends javax.swing.JFrame {
         getContentPane().setBackground(fondo);
 
 
-
-
+        ATRASButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaVeterinaria ventanaVeterinaria = new VentanaVeterinaria();
+                ventanaVeterinaria.setVisible(true);
+                ventanaVeterinaria.setLocationRelativeTo(null);
+                dispose();
+            }
+        });
     }
 }

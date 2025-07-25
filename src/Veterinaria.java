@@ -15,6 +15,8 @@ public class Veterinaria {
             public void actionPerformed(ActionEvent e) {
             VentanaVeterinaria ventanaVeterinaria = new VentanaVeterinaria();
             ventanaVeterinaria.setVisible(true);
+            ventanaVeterinaria.setLocationRelativeTo(null);
+
             }
         });
     }
@@ -26,6 +28,7 @@ public class Veterinaria {
         frame.pack();
         frame.setVisible(true);
         frame.setSize(700,500);
+        frame.setLocationRelativeTo(null);
     }
 }
 

@@ -20,7 +20,10 @@ public class VentanaVeterinaria extends JFrame {
         mascotasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            RegistrarMascota registrarMascota = new RegistrarMascota();
+            registrarMascota.setVisible(true);
+            registrarMascota.setLocationRelativeTo(null);
+            dispose();
             }
         });
 
@@ -29,6 +32,8 @@ public class VentanaVeterinaria extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 RegistrarConsulta registrarConsulta = new RegistrarConsulta();
                 registrarConsulta.setVisible(true);
+                registrarConsulta.setLocationRelativeTo(null);
+                dispose();
             }
         });
 
