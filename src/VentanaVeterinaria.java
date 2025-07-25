@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 public class VentanaVeterinaria extends JFrame {
     private JPanel Ventana;
-    private JButton alimentacionButton;
+    private JButton consultaButton;
     private JButton serviciosButton;
     private JButton veterinarioButton;
     private JButton mascotasButton;
@@ -24,10 +24,11 @@ public class VentanaVeterinaria extends JFrame {
             }
         });
 
-        alimentacionButton.addActionListener(new ActionListener() {
+        consultaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                RegistrarConsulta registrarConsulta = new RegistrarConsulta();
+                registrarConsulta.setVisible(true);
             }
         });
 
