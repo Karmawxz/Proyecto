@@ -115,6 +115,7 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-1644826"/>
           <text value="Lanzar Programa"/>
         </properties>
       </component>

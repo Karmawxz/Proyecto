@@ -16,7 +16,6 @@ public class Veterinaria {
             VentanaVeterinaria ventanaVeterinaria = new VentanaVeterinaria();
             ventanaVeterinaria.setVisible(true);
             ventanaVeterinaria.setLocationRelativeTo(null);
-
             }
         });
     }

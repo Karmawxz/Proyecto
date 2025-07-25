@@ -41,7 +41,10 @@ public class VentanaVeterinaria extends JFrame {
         serviciosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Servicios servicios = new Servicios();
+                servicios.setVisible(true);
+                servicios.setLocationRelativeTo(null);
+                dispose();
             }
         });
 

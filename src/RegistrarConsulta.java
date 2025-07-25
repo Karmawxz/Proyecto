@@ -13,6 +13,7 @@ public class RegistrarConsulta extends javax.swing.JFrame {
     private JTextArea textArea2;
     private JPasswordField passwordField1;
     private JButton ATRASButton;
+    private JButton GUARDARButton;
 
     public RegistrarConsulta() {
         super("Registro de Consulta");
@@ -31,6 +32,21 @@ public class RegistrarConsulta extends javax.swing.JFrame {
                 ventanaVeterinaria.setVisible(true);
                 ventanaVeterinaria.setLocationRelativeTo(null);
                 dispose();
+            }
+        });
+
+
+        BUSCARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        GUARDARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

@@ -101,7 +101,7 @@ public class RegistrarMascota extends JFrame {
                     JOptionPane.showMessageDialog(null, "Mascota Guardada");
                     limpiarCampos();
                 }catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Error");}
+                    JOptionPane.showMessageDialog(null, "Error de validacion.");}
             }
 
         });
