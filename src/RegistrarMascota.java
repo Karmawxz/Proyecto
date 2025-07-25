@@ -1,21 +1,22 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RegistrarMascota extends JFrame {
     private JPanel mascota;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JTextField textField6;
-    private JTextField textField7;
-    private JTextField textField8;
+    private JTextField textField1; // Código
+    private JTextField textField2; // Especie
+    private JTextField textField3; // Dueño
+    private JTextField textField4; // Raza
+    private JTextField textField5; // Teléfono
+    private JTextField textField6; // Peso
+    private JTextField textField7; // Nombre
+    private JTextField textField8; // Sexo
     private JButton BUSCARButton;
     private JButton REGISTRARButton;
     private JButton ELIMINARButton;
-    private JTextField textField9;
+    private JTextField textField9; // Código para buscar
     private JPanel nombres;
     private JButton ATRASButton;
     private Mascota mascotaGuardada = null;
@@ -29,58 +30,55 @@ public class RegistrarMascota extends JFrame {
         textField6.setText("");
         textField7.setText("");
         textField8.setText("");
-        textField9.setText(""); // campo de búsqueda, si lo tienes
+        textField9.setText("");
     }
 
     private void validarCampos() throws Exception {
-        // Validar campos vacíos
-        if (textField1.getText().trim().isEmpty() ||  // Código
-                textField2.getText().trim().isEmpty() ||  // Especie
-                textField3.getText().trim().isEmpty() ||  // Dueño
-                textField4.getText().trim().isEmpty() ||  // Raza
-                textField5.getText().trim().isEmpty() ||  // Teléfono
-                textField6.getText().trim().isEmpty() ||  // Peso
-                textField7.getText().trim().isEmpty() ||  // Nombre
-                textField8.getText().trim().isEmpty())    // Sexo
-        {
+        if (textField1.getText().trim().isEmpty() ||
+                textField2.getText().trim().isEmpty() ||
+                textField3.getText().trim().isEmpty() ||
+                textField4.getText().trim().isEmpty() ||
+                textField5.getText().trim().isEmpty() ||
+                textField6.getText().trim().isEmpty() ||
+                textField7.getText().trim().isEmpty() ||
+                textField8.getText().trim().isEmpty()) {
             throw new Exception("Todos los campos deben estar completos.");
         }
 
-        // Validar que ciertos campos contengan solo letras
-        if (!textField2.getText().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) {
+        if (!textField2.getText().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+"))
             throw new Exception("La especie solo debe contener letras.");
-        }
-        if (!textField3.getText().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) {
+
+        if (!textField3.getText().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+"))
             throw new Exception("El nombre del dueño solo debe contener letras.");
-        }
-        if (!textField4.getText().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) {
+
+        if (!textField4.getText().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+"))
             throw new Exception("La raza solo debe contener letras.");
-        }
-        if (!textField7.getText().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) {
+
+        if (!textField7.getText().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+"))
             throw new Exception("El nombre de la mascota solo debe contener letras.");
-        }
-        if (!textField8.getText().matches("[a-zA-Z ]+")) {
-            throw new Exception("El sexo debe contener solo letras.");
-        }
 
-        // Validar que teléfono sea numérico
-        if (!textField5.getText().matches("[0-9]+")) {
+        if (!textField8.getText().matches("[a-zA-Z ]+"))
+            throw new Exception("El sexo solo debe contener letras.");
+
+        if (!textField5.getText().matches("[0-9]+"))
             throw new Exception("El teléfono solo debe contener números.");
-        }
 
-        // Validar que el peso sea numérico (puede tener decimales si quieres)
-        if (!textField6.getText().matches("[0-9]+(\\.[0-9]+)?")) {
+        if (!textField6.getText().matches("[0-9]+([.,][0-9]+)?"))
             throw new Exception("El peso debe ser un número válido.");
-        }
     }
 
     public RegistrarMascota() {
         super("Registro de Mascota");
         setContentPane(mascota);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 600);
-        pack();
+        setSize(600, 450);
+        setLocationRelativeTo(null);
         setVisible(true);
+
+        REGISTRARButton.setIcon(new ImageIcon(getClass().getResource("/Imagenes/save--v1.png")));
+        ATRASButton.setIcon(new ImageIcon(getClass().getResource("/Imagenes/logout-rounded.png")));
+        ELIMINARButton.setIcon(new ImageIcon(getClass().getResource("/Imagenes/delete-forever.png")));
+        BUSCARButton.setIcon(new ImageIcon(getClass().getResource("/Imagenes/search--v1.png")));
 
         REGISTRARButton.addActionListener(new ActionListener() {
             @Override
@@ -98,19 +96,18 @@ public class RegistrarMascota extends JFrame {
                     mascota.setSexo(textField8.getText().trim());
 
                     mascotaGuardada = mascota;
-                    JOptionPane.showMessageDialog(null, "Mascota Guardada");
+                    JOptionPane.showMessageDialog(null, "Mascota guardada correctamente.");
                     limpiarCampos();
-                }catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Error de validacion.");}
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Error de Validación", JOptionPane.WARNING_MESSAGE);
+                }
             }
-
         });
 
         BUSCARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String codigo = textField9.getText().trim(); // campo de búsqueda
-
+                String codigo = textField9.getText().trim();
                 if (mascotaGuardada != null && mascotaGuardada.getCodigo().equalsIgnoreCase(codigo)) {
                     textField1.setText(mascotaGuardada.getCodigo());
                     textField2.setText(mascotaGuardada.getEspecie());
@@ -123,7 +120,6 @@ public class RegistrarMascota extends JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "Mascota no encontrada.");
                 }
-
             }
         });
 
@@ -131,14 +127,13 @@ public class RegistrarMascota extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String codigo = textField1.getText().trim();
-
                 if (mascotaGuardada != null && mascotaGuardada.getCodigo().equalsIgnoreCase(codigo)) {
                     mascotaGuardada = null;
+                    limpiarCampos();
                     JOptionPane.showMessageDialog(null, "Mascota eliminada correctamente.");
                 } else {
                     JOptionPane.showMessageDialog(null, "No se encontró una mascota con ese código.");
                 }
-                limpiarCampos();
             }
         });
 
@@ -152,5 +147,4 @@ public class RegistrarMascota extends JFrame {
             }
         });
     }
-
 }

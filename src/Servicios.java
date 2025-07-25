@@ -26,11 +26,14 @@ public class Servicios extends JFrame {
         super("Servicios");
         setContentPane(servicio);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500,400);
+        setSize(600,400);
         setLocationRelativeTo(null);
         Color fondo = new Color(176, 224, 230);
         getContentPane().setBackground(fondo);
-        pack();
+        GUARDARButton.setIcon(new ImageIcon(getClass().getResource("/Imagenes/save--v1.png")));
+        ATRASButton.setIcon(new ImageIcon(getClass().getResource("/Imagenes/logout-rounded.png")));
+        ELIMINARButton.setIcon(new ImageIcon(getClass().getResource("/Imagenes/delete-forever.png")));
+        BUSCARButton.setIcon(new ImageIcon(getClass().getResource("/Imagenes/search--v1.png")));
 
 
         ATRASButton.addActionListener(new ActionListener() {
@@ -70,17 +73,21 @@ public class Servicios extends JFrame {
                     return;
                 }
 
-                // Validaciones simples
+                if (tipo.equals("--Seleccione un servicio--")) {
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar un tipo de servicio.");
+                    return;
+                }
+
                 if (!id.matches("\\d+")) {
                     JOptionPane.showMessageDialog(null, "El ID debe ser numérico.");
                     return;
                 }
 
-                // Guardar en memoria temporal
                 servicio1 = new Servicio(id, tipo, descripcion);
                 JOptionPane.showMessageDialog(null, "Servicio guardado temporalmente.");
 
                 limpiarCampos();
+                comboBox1.setSelectedIndex(0);
             }
         });
 

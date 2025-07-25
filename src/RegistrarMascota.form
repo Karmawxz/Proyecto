@@ -90,7 +90,7 @@
             </constraints>
             <properties>
               <font name="Bookman Old Style" size="14"/>
-              <text value="Telefono"/>
+              <text value="Teléfono"/>
             </properties>
           </component>
           <component id="84c19" class="javax.swing.JTextField" binding="textField5" default-binding="true">
@@ -255,7 +255,7 @@
         <properties>
           <background color="-1644826"/>
           <font name="Bookman Old Style" size="14"/>
-          <text value="ATRAS"/>
+          <text value="ATRÁS"/>
         </properties>
       </component>
       <vspacer id="18e41">

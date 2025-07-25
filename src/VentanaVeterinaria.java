@@ -6,7 +6,7 @@ public class VentanaVeterinaria extends JFrame {
     private JPanel Ventana;
     private JButton consultaButton;
     private JButton serviciosButton;
-    private JButton veterinarioButton;
+    private JButton saludButton;
     private JButton mascotasButton;
 
     public  VentanaVeterinaria() {
@@ -49,10 +49,12 @@ public class VentanaVeterinaria extends JFrame {
         });
 
 
-        veterinarioButton.addActionListener(new ActionListener() {
+        saludButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            Salud salud = new Salud();
+            salud.setVisible(true);
+            salud.setLocationRelativeTo(null);
             }
         });
     }
